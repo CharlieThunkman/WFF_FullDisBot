@@ -2,7 +2,7 @@ const { Guild } = require('discord.js');
 const messager = require('./messager');
 
 module.exports = client => {
-    const channelID = '491759340911591424';
+    const channelID = '792436679037681694';
     index = 2;
 
     const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)
