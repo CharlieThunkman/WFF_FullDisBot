@@ -18,16 +18,16 @@ module.exports = async (client, id, text, reactions, index) => {
             })
         } else {
             //Edit existing message
-            messageCount = 0
+            messageCount = messages.size - 1
             // console.log(message);
             // console.log(messages[index])
             //message[1].edit(text);
             for (const message of messages) {
-                messageCount++;
                 console.log(messageCount);
                 console.log(message[messageCount]);
                 message[index].edit(text);
                 addReactions(message[index], reactions);
+                messageCount--;
             }
         }
         console.log(messages);
