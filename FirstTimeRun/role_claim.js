@@ -4,7 +4,7 @@ const messager = require('./messager');
 const reactions = ['2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟', '🐦', '🐕‍🦺', '🎳', '🐅', '🇬', '🇦'];
 
 module.exports = client => {
-    const channelID = '491759340911591424';
+    const channelID = '792436679037681694';
     index = 1;
 
     const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)
