@@ -28,7 +28,7 @@ module.exports = client => {
     }
     const emojiRole = ['#WF2#', '#WF3#', '#WF4#', '#WF5#', '#WF6#', '#WF7#', '#WF8#', '#WF9#', '#WF10#', '#SHS#', '#BDH#', '#USF#', '#GFL#', '#HTL#', '#AMZ#'];
     const handelReaction = async (reaction, user, add) => {
-            if (user.id === "790173314995847189") { return; }
+            if (user.id === "792436679037681694") { return; }
             if (reaction.message.partial) await reaction.message.fetch();
             if (reaction.partial) await reaction.fetch();
             if (!reaction.message.guild) return;
