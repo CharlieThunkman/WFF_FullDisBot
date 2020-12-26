@@ -1,0 +1,9 @@
+{
+    "languages": ["English", "Spanish"],
+    "translations":{
+        "PING":{
+            "English": "pong",
+            "Spanish": "el pongo"
+        }
+    }
+}
