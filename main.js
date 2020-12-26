@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const Discord = require('discord.js');
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
-const config = require('./config.json');
+// const config = require('./config.json');
 
 const roleClaim = require('./FirstTimeRun/role_claim')
 const langClaim = require('./FirstTimeRun/lang_claim')
@@ -27,14 +27,13 @@ for(const file of commandFilesCE){
 */
 client.once('ready', () => {
     console.log('\n\n\n\n\n\n\n       CalBot is now online!\n');
-    roleClaim(client);
-    // langClaim(client);
-    
     client.user.setPresence({
         activity: {
             name: `${config.prefix}help for help.`,
         }
     })
+    roleClaim(client);
+    setTimeout(() => langClaim(client), 7500);
 });
 
 client.on('ready', async () => {
@@ -72,4 +71,6 @@ client.on('message', message =>{
 });
 
 */
-client.login(config.token);
+client.login(process.env.DIS_TOKEN);
+// client.login(config.token);
+
