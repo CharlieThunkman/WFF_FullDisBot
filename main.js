@@ -29,7 +29,7 @@ client.once('ready', () => {
     console.log('\n\n\n\n\n\n\n       CalBot is now online!\n');
     client.user.setPresence({
         activity: {
-            name: `${config.prefix}help for help.`,
+            name: `${process.env.DIS_PREFIX}help for help.`,
         }
     })
     roleClaim(client);
