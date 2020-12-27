@@ -26,7 +26,7 @@ module.exports = client => {
         htl: '|HTL|',
         amz: '|AMZ|'
     }
-    const emojiRole = ['|WF2|', '|WF3|', '|WF4|', '|WF5|', '|WF6|', '|WF7|', '|WF8|', '|WF9|', '|WF10|', '|SHS|', '|BDH|', '|USF|', '|GFL|', '|HTL|', '|AMZ|'];
+    const emojiRole = ['}WF2{', '}WF3{', '}WF4{', '}WF5{', '|WF6|', '|WF7|', '|WF8|', '|WF9|', '|WF10|', '|SHS|', '|BDH|', '|USF|', '|GFL|', '|HTL|', '|AMZ|'];
     const handelReaction = async (reaction, user, add) => {
             if (user.id === "792436679037681694") { return; }
             if (reaction.message.partial) await reaction.message.fetch();
