@@ -16,7 +16,7 @@ module.exports = async (client, id, text, reactions, index) => {
                 const reactionCopy = reactions;
                 addReactions(message, reactionCopy);
             })
-        } else {
+        } /*else {
             //Edit existing message
             messageCount = messages.size - 1
             // console.log(message);
@@ -29,7 +29,7 @@ module.exports = async (client, id, text, reactions, index) => {
                 addReactions(message[index], reactions);
                 messageCount--;
             }
-        }
+        }*/
         console.log(messages);
         return '433';
     });
