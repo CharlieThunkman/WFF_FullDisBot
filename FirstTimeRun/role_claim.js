@@ -33,7 +33,7 @@ module.exports = client => {
             if (reaction.partial) await reaction.fetch();
             if (!reaction.message.guild) return;
 
-            const reactors = ['2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟', '🐦', '🐕‍🦺', '🎳', '🐅', '🇬', '🇦'];
+            const reactors = ['2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟', '🐦', '🐕‍🦺', '🎳', '🇬', '🐅', '🇦'];
             const emoji = reaction.emoji.name;
             // console.log(reactors);
             const { guild } = reaction.message;
