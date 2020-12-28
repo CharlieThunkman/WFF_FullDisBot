@@ -50,8 +50,8 @@ module.exports = client => {
             console.log(frIndex)
             if (frIndex === -1) { return; }
             console.log('found role');
-            console.log(emojis[frIndex]);
-            const roleName = emojis[frIndex];
+            console.log(emojiRole[frIndex]);
+            const roleName = emojiRole[frIndex];
             console.log(roleName);
             const role = guild.roles.cache.find(role => role.name === roleName);
             const member = guild.members.cache.find(member => member.id === user.id);
