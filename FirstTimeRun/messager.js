@@ -25,8 +25,8 @@ module.exports = async (client, id, text, reactions, mID) => {
             for (const message of messages) {
                 console.log(messageCount);
                 console.log(message[1].id);
-                message[mID].edit(text);
-                addReactions(message[mID], reactions);
+                message[1].edit(text);
+                addReactions(message[1], reactions);
                 messageCount--;
             }
         }
