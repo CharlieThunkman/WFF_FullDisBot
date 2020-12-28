@@ -5,28 +5,28 @@ const reactions = ['2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️�
 
 module.exports = client => {
     const channelID = '792436679037681694';
-    index = 1;
+    const messageID = '792461414106791946';
 
     const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)
 
     const emojis = {
-        wf2: '|WF2|',
-        wf3: '|WF3|',
-        wf4: '|WF4|',
-        wf5: '|WF5|',
-        wf6: '|WF6|',
-        wf7: '|WF7|',
-        wf8: '|WF8|',
-        wf9: '|WF9|',
-        wf10: '|WF10|',
-        shs: '|SHS|',
-        bdh: '|BDH|',
-        usf: '|USF|, |US2|, & |US3|',
-        gfl: '|GFL|',
-        htl: '|HTL|',
-        amz: '|AMZ|'
+        wf2: '-WF2-',
+        wf3: '-WF3-',
+        wf4: '-WF4-',
+        wf5: '-WF5-',
+        wf6: '-WF6-',
+        wf7: '-WF7-',
+        wf8: '-WF8-',
+        wf9: '-WF9-',
+        wf10: '-WF10-',
+        shs: '-SHS-',
+        bdh: '-BDH-',
+        usf: '-USF-, -US2-, & -US3-',
+        gfl: '-GFL-',
+        htl: '-HTL-',
+        amz: '-AMZ-'
     }
-    const emojiRole = ['}WF2{', '}WF3{', '}WF4{', '}WF5{', '|WF6|', '|WF7|', '|WF8|', '|WF9|', '|WF10|', '|SHS|', '|BDH|', '|USF|', '|GFL|', '|HTL|', '|AMZ|'];
+    const emojiRole = ['-WF2-', '-WF3-', '-WF4-', '-WF5-', '-WF6-', '-WF7-', '-WF8-', '-WF9-', '-WF10-', '-SHS-', '-BDH-', '-USF-', '-GFL-', '-HTL-', '-AMZ-'];
     const handelReaction = async (reaction, user, add) => {
             if (user.id === "792436679037681694") { return; }
             if (reaction.message.partial) await reaction.message.fetch();
@@ -49,7 +49,8 @@ module.exports = client => {
             }
             console.log(frIndex)
             if (frIndex === -1) { return; }
-            console.log('found role')
+            console.log('found role');
+            cosole.log(emojis[frIndex]);
             const roleName = emojis[frIndex];
             console.log(roleName);
             const role = guild.roles.cache.find(role => role.name === roleName);
@@ -81,7 +82,7 @@ module.exports = client => {
         const role = emojis[key];
         eText += `    ${emoji} = ${role}\n`
     }
-    const MessageID = messager(client, channelID, eText, reactions, index++);
+    const MessageID = messager(client, channelID, eText, reactions, messageID);
     console.log(reactions);
 
     //messager(client, channelID, 'eText', ['✅'], index++);
