@@ -3,7 +3,7 @@ const messager = require('./messager');
 
 module.exports = client => {
     const channelID = '792436679037681694';
-    index = 2;
+    const messageID = '792461445676793866';
 
     const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)
 
@@ -73,7 +73,7 @@ module.exports = client => {
         const role = emojiText[key];
         eText += `\n${emoji} <== ${role}\n`
     }
-    const MessageID = messager(client, channelID, eText, reactions, index);
+    const MessageID = messager(client, channelID, eText, reactions, messageID);
     //2️⃣,3️⃣,4️⃣,5️⃣,6️⃣,7️⃣,8️⃣,9️⃣,🔟,🐦,🐕‍🦺,🎳,🐅,🇬,🇦
     //1️⃣0️⃣
     //'🇨🇳','🇩🇪','🇪🇸','🇯🇵','🇰🇷','🇵🇹','🇺🇸'
