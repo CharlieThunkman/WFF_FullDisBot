@@ -82,7 +82,7 @@ module.exports = client => {
         const role = emojis[key];
         eText += `    ${emoji} = ${role}\n`
     }
-    const MessageID = messager(client, channelID, eText, reactions, messageID);
+    messager(client, channelID, eText, reactions, messageID);
     console.log(reactions);
 
     //messager(client, channelID, 'eText', ['✅'], index++);

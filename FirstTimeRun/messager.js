@@ -6,17 +6,17 @@ const addReactions = (message, reactions) => {
     }
 }
 
-module.exports = async (client, id, text, reactions, index) => {
+module.exports = async (client, id, text, reactions, mID) => {
     const channel = await client.channels.fetch(id);
 
-    channel.messages.fetch().then((messages) => {
-        if (messages.size <= index - 1) {
+    channel.messages.fetch(mID).then((messages) => {
+        if (messages.size <= 2) {
             //Send cooresponding message
             channel.send(text).then(message => {
                 const reactionCopy = reactions;
                 addReactions(message, reactionCopy);
             })
-        } /*else {
+        } else {
             //Edit existing message
             messageCount = messages.size - 1
             // console.log(message);
@@ -24,15 +24,14 @@ module.exports = async (client, id, text, reactions, index) => {
             //message[1].edit(text);
             for (const message of messages) {
                 console.log(messageCount);
-                console.log(message[messageCount]);
-                message[index].edit(text);
-                addReactions(message[index], reactions);
+                console.log(message[1].id);
+                message[mID].edit(text);
+                addReactions(message[mID], reactions);
                 messageCount--;
             }
-        }*/
+        }
         console.log(messages);
-        return '433';
-    });
+    }).catch(console.error);
     /*
     async execute(client, id, text, reactions = [], index) {
         const channel = await client.channels.fetch(id);
