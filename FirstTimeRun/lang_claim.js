@@ -46,10 +46,12 @@ module.exports = client => {
         console.log('found flag');
         const roleName = emojiRole[frIndex];
         console.log(roleName);
+        const newRole = guild.roles.cache.find(role => role.name === 'New WFF Discord Member');
         const role = guild.roles.cache.find(role => role.name === roleName);
         const member = guild.members.cache.find(member => member.id === user.id);
         if (add) {
             member.roles.add(role);
+            member.roles.remove(newRole);
         } else {
             member.roles.remove(role);
         }
