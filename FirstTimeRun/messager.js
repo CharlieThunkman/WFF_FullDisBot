@@ -23,14 +23,14 @@ module.exports = async (client, id, text, reactions, mID) => {
             // console.log(messages[index])
             //message[1].edit(text);
             //for (const message of messages) {
-            console.log(messageCount);
-            console.log(messages.id);
+            // console.log(messageCount);
+            // console.log(messages.id);
             messages.edit(text);
             addReactions(messages, reactions);
             messageCount--;
             // }
         }
-        console.log(messages);
+        // console.log(messages);
     }).catch(console.error);
     /*
     async execute(client, id, text, reactions = [], index) {
