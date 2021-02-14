@@ -9,7 +9,7 @@ module.exports = client => {
         channelID = config.REACT_CNL1;
         messageID = config.LANG_MSG_ID;
     }
-    console.log("ID: "+channelID);
+    //console.log("ID: "+channelID);
 
     const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)
 

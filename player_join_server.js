@@ -7,6 +7,7 @@ ch_g = process.env.CH_G;
 de_g = process.env.DE_G;
 fr_g = process.env.FR_G;
 REACT_CNL1 = process.env.REACT_CNL1;
+find_role = 'New WFF Discord Member';
 if (!en_g) {
     //const { en_g, es_g, pt_g, ko_g, jp_g, ch_g, de_g, fr_g, REACT_CNL1 } = require('./config.json');
     const config = require('./config.json');
@@ -19,6 +20,7 @@ if (!en_g) {
     de_g = config.de_g;
     fr_g = config.fr_g;
     REACT_CNL1 = config.REACT_CNL1;
+    find_role = 'Member';
 }
 
 module.exports = {
@@ -52,8 +54,7 @@ module.exports = {
 
         // Join overview role
         const role = member.guild.roles.cache.find((role) => {
-            return role.name === 'Member';
-            //return role.name === 'New WFF Discord Member';
+            return role.name === find_role;
         });
         member.roles.add(role)
 
