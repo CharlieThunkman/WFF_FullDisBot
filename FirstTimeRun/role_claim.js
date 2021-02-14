@@ -4,8 +4,13 @@ const messager = require('./messager');
 const reactions = ['2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟', '🐦', '🐕‍🦺', '🎳', '🇬', '🐅', '🇦'];
 
 module.exports = client => {
-    const channelID = '792436679037681694';
-    const messageID = '792461414106791946';
+    channelID = process.env.REACT_CNL1;
+    messageID = process.env.ROLE_MSG_ID;
+    if (!channelID){
+        const config = require('../config.json');
+        channelID = config.REACT_CNL1;
+        messageID = config.ROLE_MSG_ID;
+    }
 
     const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)
 
@@ -21,7 +26,7 @@ module.exports = client => {
         wf10: '-WF10-',
         shs: '-SHS-',
         bdh: '-BDH-',
-        usf: '-USF-, -US2-, & -US3-',
+        usf: '-US2-, & -US3-',
         gfl: '-GFL-',
         htl: '-HTL-',
         amz: '-AMZ-'
@@ -47,10 +52,10 @@ module.exports = client => {
                 }
                 roleIndex++;
             }
-            console.log(frIndex)
+            //console.log(frIndex)
             if (frIndex === -1) { return; }
             console.log('found role');
-            console.log(emojiRole[frIndex]);
+            //console.log(emojiRole[frIndex]);
             const roleName = emojiRole[frIndex];
             console.log(roleName);
             const role = guild.roles.cache.find(role => role.name === roleName);

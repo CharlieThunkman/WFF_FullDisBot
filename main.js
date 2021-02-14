@@ -1,12 +1,14 @@
+/*  Main online directory of this bot:
+https://github.com/CharlieThunkman/WFF_FullDisBot
+*/
 const fs = require('fs');
 const path = require('path');
 const Discord = require('discord.js');
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
-// const config = require('./config.json');
 
 const roleClaim = require('./FirstTimeRun/role_claim')
 const langClaim = require('./FirstTimeRun/lang_claim')
-const roleINIT = require('./commands/give_role')
+const welcome = require('./player_join_server')
 
 /*client.commands = new Discord.Collection();
 client.commandsCE = new Discord.Collection();
@@ -27,13 +29,23 @@ for(const file of commandFilesCE){
 */
 client.once('ready', () => {
     console.log('\n\n\n\n\n\n\n       CalBot is now online!\n');
+    prefix = process.env.DIS_PREFIX;
+    if(!prefix){
+        const config = require('./config.json');
+        prefix = config.my_prefix
+    }
     client.user.setPresence({
         activity: {
-            name: `${process.env.DIS_PREFIX}help for help.`,
+            name: `${prefix}help for help.`,            
         }
     })
-    roleClaim(client);
-    setTimeout(() => langClaim(client), 7500);
+    //roleClaim(client);
+    //setTimeout(() => langClaim(client), 7500);
+});
+
+client.on('guildMemberAdd', member =>{
+    console.log(`Found Join Server`);
+    welcome.messages(client, member);
 });
 
 client.on('ready', async () => {
@@ -52,9 +64,6 @@ client.on('ready', async () => {
         }
     }
     readCommands('commands')
-
-
-
 })
 /*
 client.on('message', message =>{
@@ -71,6 +80,10 @@ client.on('message', message =>{
 });
 
 */
-client.login(process.env.DIS_TOKEN);
-// client.login(config.token);
+token = process.env.DIS_TOKEN;
+if(!token){
+    const config = require('./config.json');
+    token=config.token;
+}
+client.login(token);
 

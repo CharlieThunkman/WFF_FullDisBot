@@ -6,7 +6,7 @@ module.exports = {
     description: 'Allows users to sign up for an event',
     expectedArgs: '<time> <name>',
     callback: (message, args, text) => {
-        async (message, args, Discord, client) => {
+        async (message, args, Discord, client) => { 
             const channel = '491759340911591424';
             const eAvailable = '⚔️';
             const eDefend = '🛡️';

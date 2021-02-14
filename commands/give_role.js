@@ -6,7 +6,7 @@ module.exports = {
     minArgs: 2,
     permissions: [],
     requiredRoles: [],
-    callback: async (message, args, text) => {
+    callback: async (message, args, text) => { 
         const targetUser = message.mentions.users.first();
         const action = args[0];
         if (action !== 'create') {

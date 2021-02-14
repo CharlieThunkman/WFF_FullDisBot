@@ -6,7 +6,7 @@ module.exports = {
     maxArgs: 1,
     callback: (message, args, text) => {
         console.log(args);
-        message.channel.send(`
+        message.channel.send(` 
 For Musix commands: (prefix=!)
     **${prefix}help music**
 

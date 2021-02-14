@@ -2,8 +2,13 @@ const { Guild } = require('discord.js');
 const messager = require('./messager');
 
 module.exports = client => {
-    const channelID = '792436679037681694';
-    const messageID = '792461445676793866';
+    channelID = process.env.REACT_CNL1;
+    messageID = process.env.LANG_MSG_ID;
+    if (!channelID){
+        const config = require('../config.json');
+        channelID = config.REACT_CNL1;
+        messageID = config.LANG_MSG_ID;
+    }
 
     const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)
 
@@ -41,7 +46,7 @@ module.exports = client => {
             }
             roleIndex++;
         }
-        console.log(frIndex)
+        //console.log(frIndex)
         if (frIndex === -1) return;
         console.log('found flag');
         const roleName = emojiRole[frIndex];

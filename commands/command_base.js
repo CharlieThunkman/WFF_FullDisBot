@@ -1,4 +1,7 @@
-const { prefix } = require('../config.json');
+const my_prefix = process.env.DIS_PREFIX;
+if(!my_prefix){
+    const { my_prefix } = require('../config.json');
+}
 const validatePermissions = (permissions) => {
     [
         'CREATE_INSTANT_INVITE', 'KICK_MEMBERS', 'BAN_MEMBERS', 'ADMINISTRATOR',
@@ -7,7 +10,7 @@ const validatePermissions = (permissions) => {
         'SEND_TTS_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_MESSAGES', 'ATTACH_FILES',
         'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'USE_EXTERNAL_EMOJIS',
         'VIEW_GUILD_INSIGHT', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS',
-        'DEAFEN_MEMBERS', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NAME',
+        'DEAFEN_MEMBERS', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NAME', 
         'MANAGE_NICKNAMES', 'MANAGE_ROLES', 'MANAGE_WEBHOOKS', 'MANAGE_EMOJIS',
     ]
     for (const permission of permissions) {
@@ -64,7 +67,7 @@ module.exports = (Discord, client, commandOptions) => {
                 arguments.shift();
 
                 if (arguments.length < minArgs || (arguments.length > maxArgs && maxArgs !== null)) {
-                    message.reply(`Incorrect syntax! Use ${prefix}${alias} ${expectedArgs}`)
+                    message.reply(`Incorrect syntax! Use ${my_prefix}${alias} ${expectedArgs}`)
                     return;
                 }
                 console.log(`Utilizing command "${alias}"`);

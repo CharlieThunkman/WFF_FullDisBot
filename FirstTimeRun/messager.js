@@ -9,7 +9,7 @@ const addReactions = (message, reactions) => {
 module.exports = async (client, id, text, reactions, mID) => {
     const channel = await client.channels.fetch(id);
 
-    channel.messages.fetch(mID).then((messages) => {
+    channel.messages.fetch(mID).then((messages) => { 
         if (messages.size <= 2) {
             //Send cooresponding message
             channel.send(text).then(message => {

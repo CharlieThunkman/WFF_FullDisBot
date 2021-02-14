@@ -5,7 +5,7 @@ module.exports = {
     description: 'this ping is command',
     minArgs: 0,
     maxArgs: 0,
-    permissions: [],
+    permissions: [], 
     requiredRoles: [],
     callback: (message, args, text) => {
         message.channel.send('pong');
