@@ -39,8 +39,8 @@ client.once('ready', () => {
             name: `${prefix}help for help.`,            
         }
     })
-    //roleClaim(client);
-    //setTimeout(() => langClaim(client), 7500);
+    roleClaim(client);
+    setTimeout(() => langClaim(client), 7500);
 });
 
 client.on('guildMemberAdd', member =>{
