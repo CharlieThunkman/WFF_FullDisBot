@@ -1,5 +1,3 @@
-const ProfileModel = require('./Mongo_Models/profileSchema')
-
 en_g = process.env.EN_G;
 es_g = process.env.ES_G;
 pt_g = process.env.PT_G;
