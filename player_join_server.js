@@ -29,27 +29,6 @@ if (!en_g) {
     find_role = 'Member';
 }
 
-module.exports = {
-    messages: async (client, member) => {
-        const importantChannelID = REACT_CNL1;
-        console.log(`Utilizing ${REACT_CNL1} Server`);
-
-        SendWelcomeMessages(client, member);
-        JoinProfileSchema(client, member);
-        
-    },
-}
-
-const JoinProfileSchema = async (client, member) =>{
-    let profile = await ProfileModel.create({
-        userID: member.id,
-        serverID: server.guild.id,
-        coins: 100,
-        bank: 0
-    });
-    profile.save();
-}
-
 const SendWelcomeMessages = (client, member) =>{
     const en_message = `Welcome <@${member.id}> to the WFF Family! Please visit ${member.guild.channels.cache.get(importantChannelID)
         .toString()} to customize the discord server to fit your language preferences.`;
